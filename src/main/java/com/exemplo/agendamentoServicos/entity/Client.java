@@ -12,6 +12,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Client {
 
+    public Client(String name, Long overbalance){
+        this.name = name;
+        this.overbalance= overbalance;
+        this.active = true;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
