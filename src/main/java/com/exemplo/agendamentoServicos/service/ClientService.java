@@ -4,11 +4,13 @@ import com.exemplo.agendamentoServicos.DTO.RequestClientDTO;
 import com.exemplo.agendamentoServicos.DTO.ResponseClientDTO;
 import com.exemplo.agendamentoServicos.entity.Client;
 import com.exemplo.agendamentoServicos.repository.ClientRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 import java.util.stream.Collectors;
 
+@Service
 public class ClientService {
 
     private ClientRepository repository;
