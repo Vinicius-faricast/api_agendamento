@@ -31,12 +31,14 @@ public class ClientService {
         return repository
                 .findAll()
                 .stream()
+                .filter(Client::isActive)
                 .map(this::toResponseDTO)
                 .collect(Collectors.toList());
     }
 
     public ResponseClientDTO listClientById(Long id){
         return repository.findById(id)
+                .filter(Client::isActive)
                 .map(this::toResponseDTO)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
     }
@@ -48,7 +50,9 @@ public class ClientService {
     }
 
     public ResponseClientDTO updateClient(Long id, RequestClientDTO dto){
-        return repository.findById(id).map(client -> {
+        return repository.findById(id)
+                .filter(Client::isActive)
+                .map(client -> {
             client.setName(dto.name());
             client.setOverbalance(dto.overbalance());
             return toResponseDTO(repository.save(client));
