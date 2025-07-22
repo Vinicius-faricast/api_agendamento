@@ -60,7 +60,6 @@ public class ClientService {
     }
 
     public void delete(Long id){
-
         if(!repository.existsById(id)){
             throw new RuntimeException("Cliente não econtrado");
         }
