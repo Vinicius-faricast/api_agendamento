@@ -36,6 +36,16 @@ public class ProductController {
         return ResponseEntity.ok(listProduct);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<ResponseProductDTO> ProductById(@PathVariable long id){
+        try {
+            ResponseProductDTO product = service.listProductById(id);
+            return ResponseEntity.ok(product);
+        }catch (RuntimeException e){
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PutMapping("{id}")
     public ResponseEntity<ResponseProductDTO> updateProduct(@PathVariable long id, @RequestBody RequestProductDTO body) {
         try {
