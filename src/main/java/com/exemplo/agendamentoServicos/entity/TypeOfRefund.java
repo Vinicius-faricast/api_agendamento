@@ -1,31 +1,26 @@
 package com.exemplo.agendamentoServicos.entity;
 
-import com.exemplo.agendamentoServicos.DTO.RequestPaymentTypeDTO;
+import com.exemplo.agendamentoServicos.DTO.RequestTypeOfRefundDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "payment_type")
+@Table(name = "type_of_refund")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentType {
+public class TypeOfRefund {
 
-    public PaymentType(RequestPaymentTypeDTO dto){
-        this.type = dto.type();
-        this.tax = dto.tax();
+    public TypeOfRefund (RequestTypeOfRefundDTO dto){
+        this.description = dto.description();
         this.active = true;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    private String type;
-
-    private int tax;
-
+    private int id;
+    private String description;
     private boolean active;
 }
