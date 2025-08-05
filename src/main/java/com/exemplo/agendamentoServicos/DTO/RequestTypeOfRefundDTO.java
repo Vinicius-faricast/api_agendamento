@@ -1,16 +1,14 @@
 package com.exemplo.agendamentoServicos.DTO;
 
-import java.util.Optional;
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record RequestPaymentTypeDTO(
+import java.util.Optional;
+
+public record RequestTypeOfRefundDTO(
         @NotNull
         @NotBlank
-        String type,
-        @NotNull
-        int tax,
+        String description,
         Optional<Boolean> active
 ) {
 }

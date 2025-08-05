@@ -4,6 +4,7 @@ import com.exemplo.agendamentoServicos.DTO.RequestPaymentTypeDTO;
 import com.exemplo.agendamentoServicos.DTO.ResponseClientDTO;
 import com.exemplo.agendamentoServicos.DTO.ResponsePaymentTypeDTO;
 import com.exemplo.agendamentoServicos.service.PaymentTypeService;
+import jakarta.validation.Valid;
 import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -23,7 +24,7 @@ public class PaymentTypeController {
     }
 
     @PostMapping
-    public ResponseEntity<ResponsePaymentTypeDTO> createPaymentType(@RequestBody RequestPaymentTypeDTO body) {
+    public ResponseEntity<ResponsePaymentTypeDTO> createPaymentType(@RequestBody  @Valid RequestPaymentTypeDTO body) {
         ResponsePaymentTypeDTO createPaymentType = service.createPaymentType(body);
         return ResponseEntity.status(HttpStatus.CREATED).body(createPaymentType);
     }
