@@ -12,8 +12,10 @@ public record RequestSchedulingDTO(
         LocalDate date,
         Client client,
         Product product,
+        int totalValue,
         PaymentType paymentType,
         TypeOfRefund typeOfRefund,
-        Boolean realized
+        boolean realized,
+        boolean active
 ) {
 }
