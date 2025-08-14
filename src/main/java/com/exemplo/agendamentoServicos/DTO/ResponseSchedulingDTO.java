@@ -16,6 +16,7 @@ public record ResponseSchedulingDTO(
         int totalValue,
         PaymentType paymentType,
         TypeOfRefund typeOfRefund,
-        boolean realized
+        boolean realized,
+        boolean active
 ){
 }

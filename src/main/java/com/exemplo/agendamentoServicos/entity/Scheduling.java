@@ -1,5 +1,6 @@
 package com.exemplo.agendamentoServicos.entity;
 
+import com.exemplo.agendamentoServicos.DTO.RequestSchedulingDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +14,18 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 public class Scheduling {
+
+    public Scheduling(RequestSchedulingDTO dto){
+        this.hour = dto.hour();
+        this.date = dto.date();
+        this.client = dto.client();
+        this.product = dto.product();
+        this.paymentType = null;
+        this.typeOfRefund = null;
+        this.totalValue = dto.totalValue();
+        this.realized = false;
+        this.active = true;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,4 +54,6 @@ public class Scheduling {
     private TypeOfRefund typeOfRefund;
 
     private boolean realized;
+
+    private boolean active;
 }
