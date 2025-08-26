@@ -7,15 +7,20 @@ import com.exemplo.agendamentoServicos.repository.SchedulingRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class SchedulingService {
 
     private SchedulingRepository repository;
+    private ClientService clientService;
+    private ProductService productService;
 
-    public SchedulingService(SchedulingRepository repository){
+    public SchedulingService(SchedulingRepository repository, ClientService clientService, ProductService productService){
         this.repository = repository;
+        this.clientService = clientService;
+        this.productService = productService;
     }
 
     public ResponseSchedulingDTO toResponseDTO(Scheduling scheduling){
@@ -23,11 +28,11 @@ public class SchedulingService {
                 scheduling.getId(),
                 scheduling.getDate(),
                 scheduling.getHour(),
-                scheduling.getClient(),
-                scheduling.getProduct(),
+                Optional.ofNullable(clientService.toResponseDTO(scheduling.getClient())),
+                Optional.ofNullable(productService.toResponseDTO(scheduling.getProduct())),
                 scheduling.getTotalValue(),
-                scheduling.getPaymentType(),
-                scheduling.getTypeOfRefund(),
+                Optional.ofNullable(scheduling.getPaymentType()),
+                Optional.ofNullable(scheduling.getTypeOfRefund()),
                 scheduling.isRealized(),
                 scheduling.isActive()
         );

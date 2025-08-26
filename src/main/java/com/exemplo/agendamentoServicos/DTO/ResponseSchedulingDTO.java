@@ -6,16 +6,17 @@ import com.exemplo.agendamentoServicos.entity.Product;
 import com.exemplo.agendamentoServicos.entity.TypeOfRefund;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public record ResponseSchedulingDTO(
         Long id,
         LocalDate date,
         Long hour,
-        Client client,
-        Product product,
+        Optional<ResponseClientDTO> client,
+        Optional<ResponseProductDTO> product,
         int totalValue,
-        PaymentType paymentType,
-        TypeOfRefund typeOfRefund,
+        Optional<PaymentType> paymentType,
+        Optional<TypeOfRefund> typeOfRefund,
         boolean realized,
         boolean active
 ){
