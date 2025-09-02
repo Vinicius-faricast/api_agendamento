@@ -1,12 +1,13 @@
 package com.exemplo.agendamentoServicos.entity;
 
-import com.exemplo.agendamentoServicos.DTO.RequestSchedulingDTO;
+import com.exemplo.agendamentoServicos.DTO.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Entity
 @Table(name="scheduling")
