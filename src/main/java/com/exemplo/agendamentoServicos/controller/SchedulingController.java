@@ -55,8 +55,8 @@ public class SchedulingController {
         }
     }
 
-    @DeleteMapping({"id"})
-    public ResponseEntity<Void> deleteScheduling(@PathVariable Long id){
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteScheduling(@PathVariable long id){
         try {
             service.deleteScheduling(id);
             return ResponseEntity.noContent().build();

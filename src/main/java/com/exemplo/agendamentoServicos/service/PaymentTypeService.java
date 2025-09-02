@@ -8,6 +8,7 @@ import com.exemplo.agendamentoServicos.repository.PaymentTypeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,11 +21,16 @@ public class PaymentTypeService {
     }
 
     public ResponsePaymentTypeDTO toResponseDTO(PaymentType paymentType){
-        return new ResponsePaymentTypeDTO(
-                paymentType.getId(),
-                paymentType.getType(),
-                paymentType.getTax()
-        );
+
+        if(paymentType != null){
+
+            return new ResponsePaymentTypeDTO(
+                    paymentType.getId(),
+                    paymentType.getType(),
+                    paymentType.getTax()
+            );
+        }
+         return null;
     }
 
     public List<ResponsePaymentTypeDTO> listAllPaymentType(){

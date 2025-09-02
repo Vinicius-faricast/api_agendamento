@@ -6,6 +6,7 @@ import com.exemplo.agendamentoServicos.entity.Product;
 import com.exemplo.agendamentoServicos.entity.TypeOfRefund;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public record RequestSchedulingDTO(
         Long hour,

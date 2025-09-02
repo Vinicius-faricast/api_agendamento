@@ -19,10 +19,13 @@ public class TypeOfRefundService {
     }
 
     public ResponseTypeOfRefundDTO toResponse(TypeOfRefund typeOfRefund){
-        return new ResponseTypeOfRefundDTO(
-                typeOfRefund.getId(),
-                typeOfRefund.getDescription()
-        );
+        if(typeOfRefund != null){
+            return new ResponseTypeOfRefundDTO(
+                    typeOfRefund.getId(),
+                    typeOfRefund.getDescription()
+            );
+        }
+        return null;
     }
 
     public List<ResponseTypeOfRefundDTO> findAllTypeOfRefund(){

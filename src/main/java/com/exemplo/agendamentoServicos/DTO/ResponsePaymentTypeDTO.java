@@ -1,7 +1,9 @@
 package com.exemplo.agendamentoServicos.DTO;
 
+import java.util.Optional;
+
 public record ResponsePaymentTypeDTO(
-        long id,
+        Long id,
         String type,
         long tax
 ) {

@@ -15,8 +15,8 @@ public record ResponseSchedulingDTO(
         Optional<ResponseClientDTO> client,
         Optional<ResponseProductDTO> product,
         int totalValue,
-        Optional<PaymentType> paymentType,
-        Optional<TypeOfRefund> typeOfRefund,
+        Optional<ResponsePaymentTypeDTO> paymentType,
+        Optional<ResponseTypeOfRefundDTO> typeOfRefund,
         boolean realized,
         boolean active
 ){
